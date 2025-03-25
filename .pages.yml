@@ -6,4 +6,9 @@ content:
     label: Verhalen
     type: collection
     path: src/content/verhalen
+    view:
+      fields: [ title ]
+    fields:
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: location, label: Locatie, type: string, required: true }
   
