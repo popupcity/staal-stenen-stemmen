@@ -14,7 +14,9 @@ content:
           name: location,
           label: Location,
           type: object,
-          fields: [name, lat, lng],
+        fields:
+          - { name: lat, label: Latitude, type: number },
+          - { name: lng, label: Longitude, type: number }
         }
       - { name: audio, label: Audio, type: image, extensions: [mp4, jpg] }
       - { name: body, label: Body, type: rich-text }
