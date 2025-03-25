@@ -6,7 +6,4 @@ content:
     label: Verhalen
     type: collection
     path: src/content/verhalen
-    filename: {primary}.md
-    view:
-      primary: title
   
