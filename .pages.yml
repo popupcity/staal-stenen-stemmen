@@ -4,3 +4,4 @@ media:
 content:
   name: stories
   label: Verhalen
+  path: src/stories
