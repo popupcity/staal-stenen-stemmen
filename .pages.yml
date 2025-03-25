@@ -10,6 +10,7 @@ content:
       fields: [ title ]
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: location, label: Location, type: string, required: true }
-      - { name: body, label: Body, type: rich-text, required: true }
+      - { name: location, label: Location, type: string }
+      - { name: audio, label: Audio, type: image, categories: audio }
+      - { name: body, label: Body, type: rich-text }
   
