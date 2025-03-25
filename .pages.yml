@@ -11,6 +11,6 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: location, label: Location, type: string }
-      - { name: audio, label: Audio, type: image, categories: [audio] }
+      - { name: audio, label: Audio, type: image, extensions: [ mp4 ] }
       - { name: body, label: Body, type: rich-text }
   
