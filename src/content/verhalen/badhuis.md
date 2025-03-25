@@ -1,7 +1,8 @@
 ---
 title: Badhuis
-coordinates: 1,3
+location:
+  lat: 2
+  lng: 4
 audio: /dist/uploads/aardbeving.mp3
 ---
-
 Tekst hier!
