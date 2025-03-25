@@ -3,12 +3,13 @@ media:
   output: /dist/uploads
 content:
   - name: verhalen
-    label: Verhalen
+    label: Stories
     type: collection
     path: src/content/verhalen
     view:
       fields: [ title ]
     fields:
-      - { name: title, label: Titel, type: string, required: true }
-      - { name: location, label: Locatie, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: location, label: Location, type: string, required: true }
+      - { name: body, label: Body, type: rich-text, required: true }
   
