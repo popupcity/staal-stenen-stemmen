@@ -1,11 +1,17 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import NearbyStories from "../components/NearbyStories";
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Haal alle verhalen op uit de content folder
+const verhalen = await getCollection("verhalen");
+const stories = verhalen.map((v) => ({
+  title: v.data.title,
+  slug: v.slug,
+  coordinates: v.data.coordinates
+}));
 ---
 
 <Layout>
-	<Welcome />
+	<NearbyStories stories={stories} />
 </Layout>
