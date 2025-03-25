@@ -2,6 +2,6 @@ media:
   input: src/uploads
   output: /dist/uploads
 content:
-  name: stories
+  name: verhalen
   label: Verhalen
-  path: src/stories
+  path: src/verhalen
