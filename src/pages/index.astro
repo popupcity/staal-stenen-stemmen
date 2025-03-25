@@ -1,17 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import NearbyStories from "../components/NearbyStories";
-import { getCollection } from 'astro:content';
-
-// Haal alle verhalen op uit de content folder
-const verhalen = await getCollection("verhalen");
-const stories = verhalen.map((v) => ({
-  title: v.data.title,
-  slug: v.slug,
-  coordinates: v.data.coordinates
-}));
+import VerhalenLijst from "../components/VerhalenLijst";
+import { getCollection } from "astro:content";
+const verhalen = await getCollection('verhalen');
 ---
 
 <Layout>
-	<NearbyStories stories={stories} />
+    <h1>Welkom bij de verhalenkaart</h1>
+    <VerhalenLijst verhalen={verhalen} client:load />
 </Layout>
