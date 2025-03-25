@@ -9,19 +9,12 @@ content:
     view:
       fields: [title]
     fields:
-      - name: title
-      label: Title
-      type: string
-      required: true 
-      - name: coordinates
-      label: Coordinates
-      type: object
-      fields: [
-        - name: lat, 
-          label: Latitude, 
-          type: number, 
-          required: true
-        - name: lng
-          label: Longitude
-          type: number
-          required: true
+      - { name: title, label: Title, type: string, required: true }
+      - {
+          name: location,
+          label: Location,
+          type: object,
+          fields: [name, lat, lng],
+        }
+      - { name: audio, label: Audio, type: image, extensions: [mp4, jpg] }
+      - { name: body, label: Body, type: rich-text }
