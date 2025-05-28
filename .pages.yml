@@ -1,17 +1,6 @@
 media:
   input: src/uploads
   output: uploads
-# media:
-#   - name: audio
-#     label: Audio
-#     input: src/uploads/audio
-#     output: uploads/audio
-#     categories: [audio]
-#   - name: images
-#     label: Images
-#     input: src/uploads/img
-#     output: uploads/img
-#     categories: [image]
 content:
   - name: verhalen
     label: Stories
