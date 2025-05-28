@@ -36,8 +36,7 @@ content:
         type: file
         options:
           categories: [image]
-          multiple:
-            max: 10
+          multiple: true
 
       - name: body
         label: Body
