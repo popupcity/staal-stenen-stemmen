@@ -45,6 +45,7 @@ content:
       - name: images
         label: Images
         type: image
+        path: img
         options:
           multiple: true
 
