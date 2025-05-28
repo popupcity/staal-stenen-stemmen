@@ -1,11 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VerhalenLijst from "../components/VerhalenLijst";
 import { getCollection } from "astro:content";
-const verhalen = await getCollection('verhalen');
 ---
 
 <Layout>
     <h1>Welkom bij de verhalenkaart</h1>
-    <VerhalenLijst verhalen={verhalen} client:load />
 </Layout>

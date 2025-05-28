@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+const verhalen = await getCollection('verhalen');
+---
+
+<ul>
+  {verhalen.map(({ slug, data }) => (
+    <li><a href={`/verhalen/${slug}`}>{data.title}</a></li>
+  ))}
+</ul>

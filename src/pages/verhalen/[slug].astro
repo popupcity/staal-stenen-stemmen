@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const verhalen = await getCollection('verhalen');
+
+  return verhalen.map((verhaal) => ({
+    params: { slug: verhaal.slug },
+    props: { verhaal },
+  }));
+}
+
+const { verhaal } = Astro.props;
+const { title, location, audio } = verhaal.data;
+---
+
+<h1>{title}</h1>
+
+<p>
+Locatie: {location.lat}, {location.lng}
+</p>
+
+{audio && (
+  <audio controls>
+    <source src={audio} type="audio/mpeg" />
+    Je browser ondersteunt geen audio.
+  </audio>
+)}
+
+<article>
+  {verhaal.body}
+</article>
