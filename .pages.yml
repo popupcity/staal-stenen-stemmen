@@ -29,13 +29,13 @@ content:
         label: Audio
         type: file
         options:
-          category: [audio]
+          categories: [audio]
 
       - name: images
         label: Images
         type: file
         options:
-          category: [image]
+          categories: [image]
           multiple:
             max: 10
 
