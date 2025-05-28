@@ -27,8 +27,17 @@ content:
 
       - name: audio
         label: Audio
-        type: image
-        extensions: [mp4, jpg]
+        type: file
+        options:
+          category: [audio]
+
+      - name: images
+        label: Images
+        type: file
+        options:
+          category: [image]
+          multiple:
+            max: 10
 
       - name: body
         label: Body
