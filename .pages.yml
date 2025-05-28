@@ -44,7 +44,7 @@ content:
 
       - name: images
         label: Images
-        type: file
+        type: image
         options:
           categories: [image]
           multiple: true
