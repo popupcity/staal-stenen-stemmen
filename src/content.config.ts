@@ -7,6 +7,7 @@ const verhalenSchema = z.object({
     lng: z.number(),
   }),
   audio: z.string(),
+  images: z.array(z.string()),
 });
 
 const verhalen = defineCollection({

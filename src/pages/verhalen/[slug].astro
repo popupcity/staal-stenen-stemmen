@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 export async function getStaticPaths() {
   const verhalen = await getCollection('verhalen');
@@ -11,22 +13,53 @@ export async function getStaticPaths() {
 }
 
 const { verhaal } = Astro.props;
-const { title, location, audio } = verhaal.data;
+const { title, location, audio, images } = verhaal.data;
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/uploads/*.{jpg,jpeg,png}');
+
+const importedImages = await Promise.all(
+  images.map(async (path) => {
+    const filename = path.split('/').pop();
+    const fullPath = `/src/uploads/${filename}`;
+    if (!allImages[fullPath]) {
+      console.warn(`Afbeelding niet gevonden: ${fullPath}`);
+      return null;
+    }
+    const mod = await allImages[fullPath]();
+    return mod.default;
+  })
+);
+
+const allAudio = import.meta.glob<{ default: string }>('/src/uploads/*.{mp3,ogg,wav}');
+
+let importedAudio: string | null = null;
+
+if (audio) {
+  const filename = audio.split('/').pop();
+  const fullPath = `/src/uploads/${filename}`;
+  if (allAudio[fullPath]) {
+    const mod = await allAudio[fullPath]();
+    importedAudio = mod.default;
+  } else {
+    console.warn(`Audio niet gevonden: ${fullPath}`);
+  }
+}
 ---
 
-<h1>{title}</h1>
+<article data-lat={location.lat} data-lng={location.lng}>
 
-<p>
-Locatie: {location.lat}, {location.lng}
-</p>
+  <h1>{title}</h1>
 
-{audio && (
-  <audio controls>
-    <source src={audio} type="audio/mpeg" />
-    Je browser ondersteunt geen audio.
-  </audio>
-)}
+  {importedImages && importedImages.map((img, i) =>
+    img && <Picture src={img} alt={title} />
+  )}
 
-<article>
+  {importedAudio && (
+    <audio controls>
+      <source src={importedAudio} type="audio/mpeg" />
+      Je browser ondersteunt geen audio.
+    </audio>
+  )}
+
   {verhaal.body}
 </article>
