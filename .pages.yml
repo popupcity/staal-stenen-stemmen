@@ -6,13 +6,11 @@ media:
     label: Audio
     input: src/uploads/audio
     output: uploads/audio
-    path: src/uploads/audio
     categories: [audio]
   - name: images
     label: Images
     input: src/uploads/img
     output: uploads/img
-    path: src/uploads/img
     categories: [image]
 content:
   - name: verhalen
