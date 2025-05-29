@@ -18,6 +18,7 @@ content:
       - name: excerpt
         label: Excerpt
         type: text
+        rows: 3
 
       - name: location
         label: Location
