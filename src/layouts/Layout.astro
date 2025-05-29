@@ -1,22 +1,26 @@
+---
+import "@/styles/global.css";
+const {title, language, description} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={language} class="w-full h-full m-0">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="shortcut icon" href="/img/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any" />
+		<link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+		<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180" />
+		<meta name="apple-mobile-web-app-title" content="Staal stenen stemmen" />
+		<link rel="manifest" href="/site.webmanifest" />
 	</head>
-	<body>
-		<slot />
+	<body class="w-full h-full m-0">
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
