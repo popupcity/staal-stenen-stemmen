@@ -15,6 +15,10 @@ content:
         type: string
         required: true
 
+      - name: excerpt
+        label: Excerpt
+        type: text
+
       - name: location
         label: Location
         type: object
